@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLearn - Opanuj Nauki Ścisłe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 10s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -6px; 
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-black text-slate-300 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
+
+    <!-- Background Ambient Glows -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-900/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-blue-900/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="#" class="text-xl font-semibold text-white tracking-tighter">BMM Learning</a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">Przedmioty</a>
+                <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">Mentorzy</a>
+                <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">Egzaminy</a>
+                <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors duration-200">Cennik</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-white/10 text-slate-400 hover:text-white hover:border-white/30 transition-all">
+                    <iconify-icon icon="solar:magnifer-linear" width="18" stroke-width="1.5"></iconify-icon>
+                </button>
+                <a href="#" class="text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2">
+                    <span>Zacznij za darmo</span>
+                    <iconify-icon icon="solar:arrow-right-linear" width="16" stroke-width="1.5"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="z-10 pt-32 pb-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
+                <div class="inline-flex gap-2 text-xs font-medium text-indigo-300 bg-indigo-500/10 border-indigo-500/30 border rounded-full mb-8 pt-1 pr-3 pb-1 pl-3 gap-x-2 gap-y-2 items-center">Nowość: Kurs Maturalny 2026</div>
+                
+                <h1 class="text-5xl md:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-500 tracking-tight leading-[1.1] mb-6">
+                    Zrozum naukę. <br> <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-teal-400">Zdaj egzaminy.</span>
+                </h1>
+                
+                <p class="text-lg text-slate-400 max-w-2xl mb-10 font-light leading-relaxed">
+                    Nowoczesna platforma edukacyjna dla uczniów szkół podstawowych i średnich. Opanuj Matematykę, Chemię i Biologię poprzez interaktywne lekcje.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                    <button class="w-full sm:w-auto h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors duration-200 flex items-center justify-center gap-2">
+                        Rozpocznij Naukę
+                    </button>
+                    <button class="w-full sm:w-auto h-12 px-8 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm flex items-center justify-center gap-2">
+                        <iconify-icon icon="solar:play-circle-linear" width="20" stroke-width="1.5"></iconify-icon>
+                        Zobacz Demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Platform Preview (Glass Dashboard) -->
+            <div class="mt-20 relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-teal-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative rounded-xl bg-[#0a0a0a] border border-white/10 overflow-hidden shadow-2xl">
+                    <!-- Fake Window Header -->
+                    <div class="h-10 border-b border-white/5 flex items-center px-4 gap-2 bg-white/5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                        <div class="ml-auto flex items-center gap-4 text-xs text-slate-500 font-mono">
+                            <span class="">matematyka.bmm_learning</span>
+                            <span class="text-slate-700">|</span>
+                            <span>lekcja</span>
+                        </div>
+                    </div>
+
+                    <!-- Inner Layout -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
+                        <!-- Sidebar -->
+                        <div class="hidden md:block col-span-2 border-r border-white/5 p-4 space-y-6">
+                            <div class="space-y-1">
+                                <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Moje Przedmioty</div>
+                                <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-white/5 text-white text-sm border border-white/5">
+                                    <iconify-icon icon="solar:calculator-minimalistic-linear" class="text-indigo-400"></iconify-icon>
+                                    Matematyka
+                                </div>
+                                <div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm">
+                                    <iconify-icon icon="solar:test-tube-linear"></iconify-icon>
+                                    Chemia
+                                </div>
+                                <div class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm">
+                                    <iconify-icon icon="solar:dna-linear"></iconify-icon>
+                                    Biologia
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Widget -->
+                            <div class="p-3 rounded-lg border border-white/5 bg-white/[0.02]">
+                                <div class="flex justify-between items-end mb-2">
+                                    <span class="text-xs text-slate-400">Cel Tygodniowy</span>
+                                    <span class="text-xs text-white font-mono">84%</span>
+                                </div>
+                                <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-indigo-500 to-teal-500 w-[84%]"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Content -->
+                        <div class="col-span-12 md:col-span-7 p-6 md:p-8">
+                            <div class="flex justify-between items-center mb-8">
+                                <div>
+                                    <h3 class="text-xl font-medium text-white tracking-tight">Funkcje Trygonometryczne</h3>
+                                    <p class="text-sm text-slate-500 mt-1">Rozdział 4: Wykresy i Własności</p>
+                                </div>
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full border-2 border-black bg-indigo-500 flex items-center justify-center text-[10px] text-white font-bold">AK</div>
+                                    <div class="w-8 h-8 rounded-full border-2 border-black bg-teal-500 flex items-center justify-center text-[10px] text-white font-bold">MP</div>
+                                    <div class="w-8 h-8 rounded-full border-2 border-black bg-slate-700 flex items-center justify-center text-[10px] text-white font-bold">+12</div>
+                                </div>
+                            </div>
+
+                            <!-- Video Placeholder -->
+                            <div class="relative w-full aspect-video rounded-lg border border-white/10 bg-black overflow-hidden group/video cursor-pointer">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                                <!-- Mathematical graph background subtle -->
+                                <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#444 1px, transparent 1px); background-size: 20px 20px;"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover/video:scale-110 transition-transform duration-300">
+                                        <iconify-icon icon="solar:play-linear" width="24" stroke-width="1.5"></iconify-icon>
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center gap-4">
+                                    <iconify-icon icon="solar:pause-linear" class="text-white cursor-pointer"></iconify-icon>
+                                    <input type="range" min="0" max="100" value="35" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                                    <span class="text-xs font-mono text-slate-300">12:45</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel (Quest) -->
+                        <div class="hidden md:block col-span-3 border-l border-white/5 bg-white/[0.01] p-6">
+                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-6">Zadania na dziś</div>
+                            
+                            <div class="space-y-6">
+                                <div class="flex gap-4 items-start">
+                                    <div class="mt-1 w-5 h-5 rounded-full border border-green-500/50 bg-green-500/10 flex items-center justify-center text-green-400">
+                                        <iconify-icon icon="solar:check-read-linear" width="12"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-300 line-through decoration-slate-600">Równania kwadratowe</p>
+                                        <p class="text-xs text-slate-600 mt-1">Ukończono 2h temu</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="mt-1 w-5 h-5 rounded-full border border-indigo-500/50 bg-indigo-500/10 flex items-center justify-center text-indigo-400 animate-pulse">
+                                        <div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-white">Bilans reakcji redoks</p>
+                                        <p class="text-xs text-slate-500 mt-1">W trakcie • 50pkt</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start opacity-50">
+                                    <div class="mt-1 w-5 h-5 rounded-full border border-slate-700 bg-slate-800/50"></div>
+                                    <div>
+                                        <p class="text-sm text-slate-400">Budowa komórki</p>
+                                        <p class="text-xs text-slate-600 mt-1">Zablokowane • 100pkt</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-white/5">
+                                <div class="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
+                                    <div class="flex items-center gap-2 text-indigo-300 text-xs font-medium mb-1">
+                                        <iconify-icon icon="solar:cup-star-linear"></iconify-icon>
+                                        Dni z rzędu
+                                    </div>
+                                    <div class="text-xl font-semibold text-white">12 Dni 🔥</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bento Features Section -->
+    <section class="bg-black border-white/5 border-t pt-24 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight mb-4">Zaprojektowane dla Twojego sukcesu.</h2>
+                    <p class="text-slate-400 max-w-md text-sm md:text-base">Usunęliśmy zbędne elementy. Czysta, skoncentrowana wiedza podana w formie, która przygotuje Cię do najważniejszych egzaminów.</p>
+                </div>
+                <a href="#" class="text-sm text-white border-b border-white/30 pb-1 hover:border-white transition-colors">Poznaj wszystkie funkcje</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="group md:col-span-2 relative p-8 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-white/10 transition-all overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div class="mb-8">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white mb-4">
+                                <iconify-icon icon="solar:graph-new-linear" width="20" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-xl font-medium text-white mb-2">Interaktywne Narzędzia</h3>
+                            <p class="text-sm text-slate-400">Rozwiązuj zadania, rysuj wykresy i przeprowadzaj wirtualne eksperymenty chemiczne bezpośrednio w przeglądarce.</p>
+                        </div>
+                        <!-- Math/Chemistry Formula Simulation -->
+                        <div class="w-full h-32 rounded-lg bg-[#0f0f0f] border border-white/5 p-4 font-mono text-xs text-slate-300 relative overflow-hidden flex flex-col justify-center">
+                            <div class="absolute top-0 right-0 p-2 flex gap-1.5">
+                                <div class="w-2 h-2 rounded-full bg-slate-700"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-700"></div>
+                            </div>
+                            <div class="space-y-2 opacity-80">
+                                <p class="text-slate-500">// Obliczanie delty</p>
+                                <p><span class="text-purple-400">let</span> <span class="text-blue-400">a</span> = 1, <span class="text-blue-400">b</span> = 5, <span class="text-blue-400">c</span> = 6;</p>
+                                <p><span class="text-purple-400">const</span> <span class="text-yellow-300">delta</span> = (b * b) - (4 * a * c);</p>
+                                <p><span class="text-green-400">=&gt; Wynik: 1</span> <span class="text-slate-600">(Dwa rozwiązania)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative p-8 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-white/10 transition-all">
+                    <div class="group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 absolute top-0 right-0 bottom-0 left-0"></div>
+                    <div class="z-10 relative">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white mb-4">
+                            <iconify-icon icon="solar:users-group-rounded-linear" width="20" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">Grupy Naukowe</h3>
+                        <p class="text-sm text-slate-400 mb-6">Dołącz do 5-osobowej grupy. Rywalizujcie w tygodniowych wyzwaniach maturalnych i motywujcie się nawzajem.</p>
+                        
+                        <div class="flex -space-x-3">
+                            <img src="https://i.pravatar.cc/100?img=33" alt="" class="w-10 h-10 rounded-full border-2 border-neutral-900 grayscale hover:grayscale-0 transition-all">
+                            <img src="https://i.pravatar.cc/100?img=47" alt="" class="w-10 h-10 rounded-full border-2 border-neutral-900 grayscale hover:grayscale-0 transition-all">
+                            <img src="https://i.pravatar.cc/100?img=12" alt="" class="w-10 h-10 rounded-full border-2 border-neutral-900 grayscale hover:grayscale-0 transition-all">
+                            <div class="w-10 h-10 rounded-full border-2 border-neutral-900 bg-neutral-800 flex items-center justify-center text-xs text-white">+2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative p-8 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-white/10 transition-all">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white mb-4">
+                            <iconify-icon icon="solar:medal-ribbon-star-linear" width="20" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">Próbne Egzaminy</h3>
+                        <p class="text-sm text-slate-400">Dostęp do bazy arkuszy CKE z automatycznym sprawdzaniem. Symulacja prawdziwego egzaminu.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group md:col-span-2 relative p-8 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-white/10 transition-all overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center relative z-10">
+                        <div>
+                            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white mb-4">
+                                <iconify-icon icon="solar:chart-2-linear" width="20" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-xl font-medium text-white mb-2">Analityka Wyników</h3>
+                            <p class="text-sm text-slate-400">Śledź swoje postępy w poszczególnych działach. Zidentyfikuj słabe punkty przed egzaminem.</p>
+                        </div>
+                        <div class="h-32 flex items-end gap-2 px-4 pb-4 border-b border-l border-white/5 bg-gradient-to-t from-white/5 to-transparent rounded-bl-xl">
+                            <div class="w-1/5 bg-teal-500/20 h-[40%] rounded-t-sm border-t border-x border-teal-500/30"></div>
+                            <div class="w-1/5 bg-teal-500/40 h-[60%] rounded-t-sm border-t border-x border-teal-500/50"></div>
+                            <div class="w-1/5 bg-teal-500/60 h-[50%] rounded-t-sm border-t border-x border-teal-500/70"></div>
+                            <div class="w-1/5 bg-teal-500/80 h-[80%] rounded-t-sm border-t border-x border-teal-500/90"></div>
+                            <div class="w-1/5 bg-teal-500 h-[70%] rounded-t-sm border-t border-x border-teal-400"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Teacher Recruitment Section -->
+            <div class="mt-24 relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-900/40">
+                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+                <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px]"></div>
+                
+                <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white text-[10px] uppercase tracking-wider font-semibold mb-6">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            Rekrutacja otwarta
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-medium text-white tracking-tight mb-4">
+                            Udzielasz korepetycji? <span class="text-slate-500">Dołącz do nas na super warunkach.</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-lg">
+                            Szukamy ekspertów, którzy chcą dzielić się wiedzą. Oferujemy przejrzyste warunki, elastyczny grafik i dostęp do nowoczesnej platformy dydaktycznej.
+                        </p>
+                        
+                        <div class="flex flex-wrap items-center gap-4 md:gap-8 mt-8">
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <iconify-icon icon="solar:wallet-money-linear" class="text-indigo-400"></iconify-icon>
+                                <span>Atrakcyjne stawki</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <iconify-icon icon="solar:calendar-linear" class="text-teal-400"></iconify-icon>
+                                <span>Elastyczność</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300">
+                                <iconify-icon icon="solar:laptop-linear" class="text-blue-400"></iconify-icon>
+                                <span>Narzędzia online</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-shrink-0 w-full md:w-auto">
+                        <a href="#" class="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-white text-black font-medium text-sm transition-transform active:scale-95 w-full md:w-auto hover:bg-slate-200">
+                            <span>Zostań Mentorem</span>
+                            <iconify-icon icon="solar:arrow-right-linear" width="16" class="group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracks Section -->
+    <section class="bg-black pt-24 pb-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-medium text-white tracking-tight text-center mb-16">Wybierz swoją ścieżkę</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Track 1: Matematyka -->
+      <div class="group relative rounded-xl border border-indigo-500/30 bg-neutral-900/20 hover:bg-neutral-900/40 transition-all duration-300 shadow-[0_0_30px_rgba(99,102,241,0.1)]">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-600 text-[10px] font-bold tracking-widest uppercase text-white rounded-full">
+          Popularne</div>
+        <div class="h-40 w-full bg-gradient-to-b from-indigo-900/20 to-transparent rounded-t-xl p-6 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+          <iconify-icon icon="solar:calculator-minimalistic-linear" class="text-white text-3xl relative z-10"></iconify-icon>
+          <div class="relative z-10">
+            <div class="text-xs font-mono text-indigo-400 mb-1">32 Moduły</div>
+            <h3 class="text-lg font-medium text-white">Matematyka</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Egzamin 8-klasisty
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Matura Podstawowa i
+              Rozsz.
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Geometria i Analiza
+            </li>
+          </ul>
+          <a href="#" class="block w-full py-2.5 rounded-lg bg-white text-center text-sm text-black font-medium hover:bg-slate-200 transition-colors">Rozpocznij
+            Naukę</a>
+        </div>
+      </div>
+
+      <!-- Track 2: Chemia -->
+      <div class="group relative rounded-xl border border-white/5 bg-neutral-900/20 hover:bg-neutral-900/40 transition-all duration-300">
+        <div class="h-40 w-full bg-gradient-to-b from-neutral-800/50 to-transparent rounded-t-xl p-6 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+          <iconify-icon icon="solar:test-tube-linear" class="text-white text-3xl relative z-10"></iconify-icon>
+          <div class="relative z-10">
+            <div class="text-xs font-mono text-teal-400 mb-1">24 Moduły</div>
+            <h3 class="text-lg font-medium text-white">Chemia</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Przygotowanie do
+              Matury
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Chemia Organiczna
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Stechiometria
+            </li>
+          </ul>
+          <a href="#" class="block w-full py-2.5 rounded-lg border border-white/10 text-center text-sm text-white hover:bg-white/5 transition-colors">Wybierz
+            Przedmiot</a>
+        </div>
+      </div>
+
+      <!-- Track 3: Biologia -->
+      <div class="group relative rounded-xl border border-white/5 bg-neutral-900/20 hover:bg-neutral-900/40 transition-all duration-300">
+        <div class="h-40 w-full bg-gradient-to-b from-neutral-800/50 to-transparent rounded-t-xl p-6 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+          <iconify-icon icon="solar:dna-linear" class="text-white text-3xl relative z-10"></iconify-icon>
+          <div class="relative z-10">
+            <div class="text-xs font-mono text-green-400 mb-1">28 Modułów</div>
+            <h3 class="text-lg font-medium text-white">Biologia</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Matura (Profil
+              Medyczny)
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Anatomia Człowieka
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-400">
+              <iconify-icon icon="solar:check-circle-linear" class="text-slate-600"></iconify-icon> Genetyka i Ekologia
+            </li>
+          </ul>
+          <a href="#" class="block w-full py-2.5 rounded-lg border border-white/10 text-center text-sm text-white hover:bg-white/5 transition-colors">Wybierz
+            Przedmiot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-white/5 border-t pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+    <div>
+      <h4 class="text-white font-medium mb-4">Produkt</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="#" class="hover:text-white transition-colors">Kursy</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Egzamin 8-klasisty</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Matura</a></li>
+
+      </ul>
+    </div>
+    <div class="">
+      <h4 class="text-white font-medium mb-4">Społeczność</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="#" class="hover:text-white transition-colors">Discord</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Wydarzenia</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Rankingi</a></li>
+      </ul>
+    </div>
+    <div class="">
+      <h4 class="text-white font-medium mb-4">Firma</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li class=""><a href="#" class="hover:text-white transition-colors">O nas</a></li>
+        <li class=""><a href="#" class="hover:text-white transition-colors">Kariera</a></li>
+        <li class=""><a href="#" class="hover:text-white transition-colors">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="">
+      <h4 class="text-white font-medium mb-4">Bądź na bieżąco</h4>
+      <form class="flex gap-2">
+
+        <button class="bg-white text-black px-3 py-2 rounded-lg hover:bg-slate-200 transition-colors">
+                            <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                        </button><input type="email" placeholder="kontakt" class="placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors text-sm text-white bg-white/5 w-full border-white/10 border rounded-lg pt-2 pr-3 pb-2 pl-3">
+      </form>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5">
+    <div class="md:mb-0 text-xl font-semibold text-white tracking-tighter mb-4">BMM LEARNING</div>
+    <div class="text-xs text-slate-500">© 2026 BMM Polska. Wszelkie prawa zastrzeżone.</div>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <a href="#" class="text-slate-400 hover:text-white transition-colors"><iconify-icon icon="solar:brand-twitter-linear" width="20"></iconify-icon></a>
+      <a href="#" class="text-slate-400 hover:text-white transition-colors"><iconify-icon icon="solar:brand-instagram-linear" width="20"></iconify-icon></a>
+      <a href="#" class="text-slate-400 hover:text-white transition-colors"><iconify-icon icon="solar:brand-facebook-linear" width="20"></iconify-icon></a>
+    </div>
+  </div>
+</div>
+    </footer>
+
+</body></html>
